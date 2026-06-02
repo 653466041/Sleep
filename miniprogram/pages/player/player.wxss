@@ -1,0 +1,339 @@
+page {
+  min-height: 100vh;
+  background: #faf9f6;
+  color: #1a1c1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #faf9f6;
+  box-sizing: border-box;
+}
+
+.breathing-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(circle at center, #ffffff 0%, #faf9f6 70%);
+  transform-origin: center;
+  animation: breathe 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.material-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Material Symbols Outlined";
+  font-size: 48rpx;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  white-space: nowrap;
+  direction: ltr;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.material-icon-filled {
+  font-variation-settings: "FILL" 1, "wght" 500, "GRAD" 0, "opsz" 24;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  width: 100%;
+  height: calc(184rpx + env(safe-area-inset-top));
+  padding: calc(40rpx + env(safe-area-inset-top)) 32rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #faf9f6;
+  box-sizing: border-box;
+}
+
+.top-button {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #34618d;
+  border-radius: 999rpx;
+  opacity: 0.85;
+}
+
+.top-spacer {
+  width: 80rpx;
+  height: 80rpx;
+  flex: 0 0 auto;
+}
+
+.title {
+  color: #1a1c1a;
+  font-size: 40rpx;
+  font-weight: 600;
+  line-height: 56rpx;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: calc(100vh - 184rpx - env(safe-area-inset-top));
+  padding: 32rpx 40rpx 0;
+  box-sizing: border-box;
+}
+
+.status {
+  margin-bottom: 48rpx;
+  color: #34618d;
+  font-size: 28rpx;
+  font-weight: 600;
+  line-height: 40rpx;
+  text-align: center;
+  letter-spacing: 4rpx;
+  opacity: 0.8;
+}
+
+.artwork-shell {
+  position: relative;
+  width: 512rpx;
+  height: 512rpx;
+  margin: 0 auto 80rpx;
+  border-radius: 999rpx;
+  background: #ffffff;
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.artwork-ring {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 8rpx solid #efeeeb;
+  border-radius: 999rpx;
+  box-sizing: border-box;
+}
+
+.artwork-spinning {
+  animation: spinSlow 20s linear infinite;
+}
+
+.artwork {
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+}
+
+.artwork-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: 999rpx;
+  box-shadow: inset 0 8rpx 40rpx rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+}
+
+.controls {
+  width: 100%;
+  margin-bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48rpx;
+}
+
+.side-control {
+  width: 96rpx;
+  height: 96rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #34618d;
+  border-radius: 999rpx;
+}
+
+.skip-symbol {
+  font-size: 80rpx;
+}
+
+.main-control {
+  width: 144rpx;
+  height: 144rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: #34618d;
+  border-radius: 999rpx;
+  box-shadow: 0 16rpx 60rpx rgba(52, 97, 141, 0.2);
+}
+
+.main-control:active,
+.side-control:active,
+.top-button:active {
+  transform: scale(0.95);
+}
+
+.main-symbol {
+  width: 80rpx;
+  height: 80rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-play-symbol::before {
+  content: "";
+  position: absolute;
+  left: 32rpx;
+  top: 18rpx;
+  width: 0;
+  height: 0;
+  border-top: 22rpx solid transparent;
+  border-bottom: 22rpx solid transparent;
+  border-left: 34rpx solid currentColor;
+}
+
+.main-pause-symbol::before,
+.main-pause-symbol::after {
+  content: "";
+  position: absolute;
+  top: 18rpx;
+  width: 14rpx;
+  height: 44rpx;
+  border-radius: 4rpx;
+  background: currentColor;
+}
+
+.main-pause-symbol::before {
+  left: 22rpx;
+}
+
+.main-pause-symbol::after {
+  right: 22rpx;
+}
+
+.panel {
+  width: 100%;
+  margin-bottom: 48rpx;
+  padding: 32rpx;
+  border: 2rpx solid #f4f3f1;
+  border-radius: 48rpx;
+  background: #ffffff;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+}
+
+.panel-title {
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  color: #42474e;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 32rpx;
+}
+
+.small-symbol {
+  font-size: 32rpx;
+}
+
+.timer-options {
+  display: flex;
+  gap: 8rpx;
+}
+
+.timer-chip {
+  height: 64rpx;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a1c1a;
+  background: #f4f3f1;
+  border-radius: 32rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 32rpx;
+  box-sizing: border-box;
+}
+
+.timer-chip-active {
+  color: #003d67;
+  background: #7da8d8;
+  box-shadow: 0 4rpx 16rpx rgba(125, 168, 216, 0.3);
+}
+
+.volume-panel {
+  margin-bottom: 0;
+}
+
+.volume-row {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.volume-icon {
+  flex: 0 0 auto;
+  font-size: 40rpx;
+}
+
+.volume-muted {
+  color: #72777f;
+}
+
+.volume-up {
+  color: #34618d;
+}
+
+.volume-slider {
+  flex: 1;
+}
+
+.scroll-bottom-space {
+  height: 80rpx;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 40rpx rgba(125, 168, 216, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 80rpx rgba(125, 168, 216, 0.5);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

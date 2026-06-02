@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="zh"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BabySleep Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "primary-container": "#7da8d8",
+                        "secondary-fixed-dim": "#d9c684",
+                        "on-secondary-fixed-variant": "#534611",
+                        "inverse-on-surface": "#f2f1ee",
+                        "inverse-surface": "#2f312f",
+                        "on-tertiary-fixed-variant": "#5e3e47",
+                        "on-surface": "#1a1c1a",
+                        "surface-tint": "#34618d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#c39aa4",
+                        "tertiary-fixed-dim": "#e7bbc6",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container-highest": "#e3e2e0",
+                        "surface": "#faf9f6",
+                        "surface-dim": "#dbdad7",
+                        "surface-container": "#efeeeb",
+                        "on-primary-fixed": "#001d35",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#78555e",
+                        "secondary-container": "#f6e29e",
+                        "primary-fixed": "#d0e4ff",
+                        "on-tertiary-container": "#50323b",
+                        "outline-variant": "#c2c7d0",
+                        "surface-container-high": "#e9e8e5",
+                        "on-tertiary-fixed": "#2d141c",
+                        "on-background": "#1a1c1a",
+                        "on-primary-container": "#003d67",
+                        "primary": "#34618d",
+                        "outline": "#72777f",
+                        "on-primary-fixed-variant": "#174974",
+                        "primary-fixed-dim": "#9fcafc",
+                        "surface-variant": "#e3e2e0",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#42474e",
+                        "on-secondary-container": "#72632c",
+                        "on-secondary-fixed": "#221b00",
+                        "inverse-primary": "#9fcafc",
+                        "on-primary": "#ffffff",
+                        "secondary": "#6c5d27",
+                        "secondary-fixed": "#f6e29e",
+                        "error": "#ba1a1a",
+                        "background": "#faf9f6",
+                        "surface-bright": "#faf9f6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffd9e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 20px rgba(52, 97, 141, 0.04);
+        }
+        .float-shadow {
+            box-shadow: 0 8px 30px rgba(52, 97, 141, 0.08);
+        }
+        .card-glow:active {
+            box-shadow: 0 0 15px rgba(125, 168, 216, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col pb-32">
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface flex items-center justify-between px-margin py-sm z-40">
+<button aria-label="Menu" class="p-sm text-primary transition-opacity duration-300 hover:opacity-80 active:scale-95 rounded-full">
+<span class="material-symbols-outlined" data-icon="waves" style="font-variation-settings: 'FILL' 1;">waves</span>
+</button>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">BabySleep</h1>
+<div class="w-10"></div> <!-- Placeholder for balance -->
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin pt-md pb-xl flex flex-col gap-lg">
+<!-- Welcome Section -->
+<section class="mb-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-xs">晚上好，宝宝</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">选择一个声音，安然入睡</p>
+</section>
+<!-- Categories (Bento Grid Style) -->
+<section class="grid grid-cols-2 gap-md">
+<!-- Nature -->
+<button class="col-span-2 bg-white rounded-lg p-lg flex flex-col items-center justify-center gap-sm soft-shadow card-glow transition-all duration-300 transform active:scale-[0.98] border border-surface-container-low group">
+<div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center text-primary group-hover:bg-primary-container/30 transition-colors">
+<span class="material-symbols-outlined text-[32px]" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div class="text-center mt-2">
+<h3 class="font-headline-md text-headline-md text-on-surface">自然之声</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-1">雨声，海浪，森林</p>
+</div>
+</button>
+<!-- Womb -->
+<button class="bg-secondary-container/30 rounded-lg p-md flex flex-col items-center justify-center gap-sm soft-shadow card-glow transition-all duration-300 transform active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[28px]" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface mt-1">母体模拟</h3>
+</button>
+<!-- Lullaby -->
+<button class="bg-tertiary-container/20 rounded-lg p-md flex flex-col items-center justify-center gap-sm soft-shadow card-glow transition-all duration-300 transform active:scale-[0.98]">
+<div class="w-12 h-12 rounded-full bg-tertiary-container/50 flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined text-[28px]" data-icon="music_note" style="font-variation-settings: 'FILL' 1;">music_note</span>
+</div>
+<h3 class="font-label-lg text-label-lg text-on-surface mt-1">安抚旋律</h3>
+</button>
+</section>
+<!-- Recent/Recommended -->
+<section class="mt-md flex flex-col gap-sm">
+<h3 class="font-label-lg text-label-lg text-on-surface-variant mb-2">最近播放</h3>
+<button class="w-full bg-white rounded-DEFAULT p-md flex items-center gap-md soft-shadow active:scale-[0.99] transition-transform">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="rainy" style="font-variation-settings: 'FILL' 1;">rainy</span>
+</div>
+<div class="flex-1 text-left">
+<h4 class="font-body-md text-body-md text-on-surface font-medium">轻柔春雨</h4>
+<p class="font-label-sm text-label-sm text-outline">自然之声 • 45分钟</p>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="play_arrow">play_arrow</span>
+</button>
+</section>
+</main>
+<!-- Floating Music Player -->
+<div class="fixed bottom-[88px] left-margin right-margin z-40">
+<div class="bg-white/80 backdrop-blur-md rounded-full px-md py-sm flex items-center justify-between float-shadow border border-white/50">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container animate-pulse-slow">
+<span class="material-symbols-outlined" data-icon="waves" style="font-variation-settings: 'FILL' 1;">waves</span>
+</div>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface">白噪音 - 海浪</p>
+<p class="font-label-sm text-label-sm text-primary">播放中...</p>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="timer">timer</span>
+</button>
+<button class="p-xs text-primary transition-transform active:scale-90">
+<span class="material-symbols-outlined text-[32px]" data-icon="pause_circle" style="font-variation-settings: 'FILL' 1;">pause_circle</span>
+</button>
+</div>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-gutter pb-6 pt-2 bg-surface-container shadow-[0_-4px_20px_0_rgba(0,0,0,0.04)] rounded-t-lg hidden md:hidden flex">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<!-- Desktop Nav Fallback (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed bottom-0 left-0 w-full z-50 justify-around items-center px-gutter pb-6 pt-2 bg-surface-container shadow-sm rounded-t-lg">
+<button class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="home" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm">Favorites</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:opacity-90 active:scale-95 transition-transform duration-200">
+<span class="material-symbols-outlined mb-1" data-icon="settings">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</button>
+</nav>
+<style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(0.95); }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s ease-in-out infinite;
+        }
+        
+        /* Ensure bottom nav is always visible on mobile despite the player */
+        @media (max-width: 767px) {
+            nav.hidden\.md\\\:hidden\.flex {
+                display: flex !important;
+            }
+            nav.hidden.md\:flex {
+                display: none !important;
+            }
+        }
+    </style>
+</body></html>

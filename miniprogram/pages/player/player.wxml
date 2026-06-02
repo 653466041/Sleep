@@ -1,0 +1,77 @@
+<view class="page">
+  <view class="breathing-bg"></view>
+
+  <view class="top-bar">
+    <view class="top-button" bindtap="onBackTap" aria-label="返回">
+      <text class="material-icon">arrow_back</text>
+    </view>
+    <text class="title">{{trackTitle}}</text>
+    <view class="top-spacer"></view>
+  </view>
+
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="status">{{statusText}}</view>
+
+    <view class="artwork-shell">
+      <view class="artwork-ring {{isPlaying ? 'artwork-spinning' : ''}}">
+        <image class="artwork" src="/assets/player-artwork.png" mode="aspectFill"></image>
+      </view>
+      <view class="artwork-shadow"></view>
+    </view>
+
+    <view class="controls">
+      <view class="side-control" bindtap="onPreviousTap" aria-label="上一首">
+        <text class="material-icon material-icon-filled skip-symbol">skip_previous</text>
+      </view>
+      <view class="main-control" bindtap="onPlayPauseTap" aria-label="播放暂停">
+        <view class="main-symbol {{isPlaying ? 'main-pause-symbol' : 'main-play-symbol'}}"></view>
+      </view>
+      <view class="side-control" bindtap="onNextTap" aria-label="下一首">
+        <text class="material-icon material-icon-filled skip-symbol">skip_next</text>
+      </view>
+    </view>
+
+    <view class="panel timer-panel">
+      <view class="panel-title">
+        <text class="material-icon small-symbol">timer</text>
+        <text>定时关闭</text>
+      </view>
+      <view class="timer-options">
+        <view
+          wx:for="{{timerOptions}}"
+          wx:key="value"
+          class="timer-chip {{timerValue === item.value ? 'timer-chip-active' : ''}}"
+          bindtap="onTimerTap"
+          data-value="{{item.value}}"
+        >
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+
+    <view class="panel volume-panel">
+      <view class="panel-title">
+        <text class="material-icon small-symbol">volume_up</text>
+        <text>音量调节</text>
+      </view>
+      <view class="volume-row">
+        <text class="material-icon volume-icon volume-muted">volume_mute</text>
+        <slider
+          class="volume-slider"
+          min="0"
+          max="100"
+          value="{{volume}}"
+          activeColor="#7da8d8"
+          backgroundColor="#e9e8e5"
+          block-size="24"
+          block-color="#ffffff"
+          bindchanging="onVolumeChanging"
+          bindchange="onVolumeChanging"
+        />
+        <text class="material-icon volume-icon volume-up">volume_up</text>
+      </view>
+    </view>
+
+    <view class="scroll-bottom-space"></view>
+  </scroll-view>
+</view>

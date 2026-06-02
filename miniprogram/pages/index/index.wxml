@@ -1,0 +1,92 @@
+<view class="page">
+  <view class="top-bar">
+    <button class="icon-button" aria-label="打开菜单" bindtap="onMenuTap">
+      <text class="material-icon material-icon-filled top-icon">waves</text>
+    </button>
+    <text class="brand">BabySleep</text>
+    <view class="top-spacer"></view>
+  </view>
+
+  <scroll-view class="content" scroll-y enhanced show-scrollbar="{{false}}">
+    <view class="welcome">
+      <text class="welcome-title">晚上好，宝宝</text>
+      <text class="welcome-subtitle">选择一个声音，安然入睡</text>
+    </view>
+
+    <view class="category-grid">
+      <button class="category-card category-card-featured" bindtap="onCategoryTap" data-name="哭闹安抚" data-type="womb">
+        <view class="category-icon category-icon-primary">
+          <text class="material-icon material-icon-filled featured-icon">graphic_eq</text>
+        </view>
+        <view class="category-copy">
+          <text class="category-title category-title-large">哭闹安抚</text>
+          <text class="category-desc">白噪音和机器声</text>
+        </view>
+      </button>
+
+      <button class="category-card category-card-secondary" bindtap="onCategoryTap" data-name="自然放松" data-type="nature">
+        <view class="category-icon category-icon-secondary">
+          <text class="material-icon material-icon-filled category-symbol">water_drop</text>
+        </view>
+        <view class="category-copy category-copy-compact">
+          <text class="category-title">自然放松</text>
+          <text class="category-desc">雨水海浪深林</text>
+        </view>
+      </button>
+
+      <button class="category-card category-card-tertiary" bindtap="onCategoryTap" data-name="陪伴入眠" data-type="melody">
+        <view class="category-icon category-icon-tertiary">
+          <text class="material-icon material-icon-filled category-symbol">music_note</text>
+        </view>
+        <view class="category-copy category-copy-compact">
+          <text class="category-title">陪伴入眠</text>
+          <text class="category-desc">心跳呼吸和摇篮曲</text>
+        </view>
+      </button>
+    </view>
+
+    <view class="recent">
+      <text class="section-label">最近播放</text>
+      <view
+        wx:for="{{recentTracks}}"
+        wx:key="id"
+        class="recent-card"
+        bindtap="onPlayTap"
+        data-id="{{item.id}}"
+      >
+        <view class="recent-icon">
+          <text class="material-icon material-icon-filled list-icon">{{item.icon}}</text>
+        </view>
+        <view class="recent-copy">
+          <text class="recent-title">{{item.title}}</text>
+          <text class="recent-meta">{{item.meta}}</text>
+        </view>
+        <text class="material-icon play-icon">play_arrow</text>
+      </view>
+    </view>
+
+    <view class="scroll-bottom-space"></view>
+  </scroll-view>
+
+  <view class="player">
+    <view class="player-card" bindtap="onPlayerTap">
+      <view class="player-left">
+        <view class="player-disc">
+          <text class="material-icon material-icon-filled player-wave">waves</text>
+        </view>
+        <view class="player-copy">
+          <text class="player-title">{{playerTitle}}</text>
+          <text class="player-status">{{playerStatus}}</text>
+        </view>
+      </view>
+      <view class="player-actions">
+        <view class="player-action" aria-label="定时" catchtap="onTimerTap">
+          <text class="material-icon timer-icon">timer</text>
+        </view>
+        <view class="player-action pause-action" aria-label="播放暂停" catchtap="onPauseTap">
+          <text class="material-icon material-icon-filled pause-icon">{{playerPlaying ? 'pause_circle' : 'play_circle'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

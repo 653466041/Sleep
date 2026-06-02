@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>BabySleep - 森林雨声</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error": "#ffffff",
+                        "primary-container": "#7da8d8",
+                        "secondary-fixed-dim": "#d9c684",
+                        "on-secondary-fixed-variant": "#534611",
+                        "inverse-on-surface": "#f2f1ee",
+                        "inverse-surface": "#2f312f",
+                        "on-tertiary-fixed-variant": "#5e3e47",
+                        "on-surface": "#1a1c1a",
+                        "surface-tint": "#34618d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#c39aa4",
+                        "tertiary-fixed-dim": "#e7bbc6",
+                        "surface-container-low": "#f4f3f1",
+                        "surface-container-highest": "#e3e2e0",
+                        "surface": "#faf9f6",
+                        "surface-dim": "#dbdad7",
+                        "surface-container": "#efeeeb",
+                        "on-primary-fixed": "#001d35",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#78555e",
+                        "secondary-container": "#f6e29e",
+                        "primary-fixed": "#d0e4ff",
+                        "on-tertiary-container": "#50323b",
+                        "outline-variant": "#c2c7d0",
+                        "surface-container-high": "#e9e8e5",
+                        "on-tertiary-fixed": "#2d141c",
+                        "on-background": "#1a1c1a",
+                        "on-primary-container": "#003d67",
+                        "primary": "#34618d",
+                        "outline": "#72777f",
+                        "on-primary-fixed-variant": "#174974",
+                        "primary-fixed-dim": "#9fcafc",
+                        "surface-variant": "#e3e2e0",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-surface-variant": "#42474e",
+                        "on-secondary-container": "#72632c",
+                        "on-secondary-fixed": "#221b00",
+                        "inverse-primary": "#9fcafc",
+                        "on-primary": "#ffffff",
+                        "secondary": "#6c5d27",
+                        "secondary-fixed": "#f6e29e",
+                        "error": "#ba1a1a",
+                        "background": "#faf9f6",
+                        "surface-bright": "#faf9f6",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffd9e2"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "gutter": "16px",
+                        "xl": "40px",
+                        "xs": "4px",
+                        "margin": "20px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "headline-lg": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    },
+                    animation: {
+                        'breathe': 'breathe 8s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        breathe: {
+                            '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
+                            '50%': { transform: 'scale(1.05)', opacity: '1' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { boxShadow: '0 0 20px rgba(125, 168, 216, 0.2)' },
+                            '50%': { boxShadow: '0 0 40px rgba(125, 168, 216, 0.5)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #faf9f6; /* surface */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .breathing-bg {
+            background: radial-gradient(circle at center, #ffffff 0%, #faf9f6 70%);
+        }
+
+        /* Custom Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -8px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            border: 2px solid #7da8d8; /* primary-container */
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #e9e8e5; /* surface-container-high */
+            border-radius: 4px;
+        }
+
+        input[type=range]:focus {
+            outline: none;
+        }
+        
+        .timer-chip.active {
+            background-color: #7da8d8; /* primary-container */
+            color: #003d67; /* on-primary-container */
+        }
+        .timer-chip {
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased text-on-surface flex flex-col min-h-screen relative overflow-x-hidden">
+<!-- Breathing Background Effect -->
+<div class="absolute inset-0 z-0 pointer-events-none breathing-bg animate-breathe origin-center"></div>
+<!-- TopAppBar -->
+<header class="w-full top-0 sticky bg-surface dark:bg-surface-dim z-40 transition-opacity duration-300">
+<div class="flex items-center justify-between px-margin py-sm w-full">
+<button class="text-primary dark:text-primary-fixed-dim opacity-80 hover:opacity-100 transition-opacity p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<h1 class="font-headline-md text-headline-md text-on-surface">森林雨声</h1>
+<button class="text-primary dark:text-primary-fixed-dim opacity-80 hover:opacity-100 transition-opacity p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite_border</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow flex flex-col items-center justify-start px-margin pt-xl pb-[120px] z-10 relative">
+<!-- Status -->
+<p class="font-label-lg text-label-lg text-primary mb-lg opacity-80 tracking-widest uppercase">播放中</p>
+<!-- Central Artwork -->
+<div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full mb-xl animate-pulse-glow bg-surface-container-lowest">
+<div class="absolute inset-0 rounded-full overflow-hidden border-4 border-surface-container animate-spin-slow">
+<img alt="Central artwork" class="w-full h-full object-cover opacity-90 mix-blend-multiply" data-alt="A gentle, minimalist line-art illustration of a sleeping baby curled up on a soft cloud, surrounded by delicate raindrops and tiny stylized leaves. The artwork is framed within a perfect circle, utilizing a soft minimalist aesthetic with tonal layering. The color palette features moonlight cream backgrounds with pure white highlights and subtle twilight blue accents. The lighting is soft and ambient, creating a serene, protective, and calming mood suitable for a sleep app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA04ttEK_MoB54t5yH06fJB_pi0dlKlXv0MeahIo--LVKijnHgjNvQdqw-vr1VEGnpALP0NGuJODfcHofIxibs_xIVYVWpzvdZbWkOvtR905pdJ9fO57iiFgXncmvm3l54iDn44PCSo_jsMq7QcTHwCvnDwPiZ3BRmpGsETIBy3-t1iN7jyiT2Ngf19H-mKnoOSEyc8aVS63Cb7l7iECZVeePDY7NRqS8FB0sme0A5ssIh98h8qZYOryi2QskXfgthcgjrPIucmnwY">
+</div>
+<!-- Inner Shadow Overlay for Depth -->
+<div class="absolute inset-0 rounded-full shadow-[inset_0_4px_20px_rgba(0,0,0,0.05)] pointer-events-none"></div>
+</div>
+<!-- Playback Controls (Primary Actions) -->
+<div class="flex items-center justify-center gap-lg w-full max-w-md mb-xl">
+
+<button class="text-primary hover:opacity-80 transition-opacity p-3 rounded-full">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">skip_previous</span>
+</button>
+<!-- Play/Pause -->
+<button class="bg-primary text-on-primary rounded-full p-6 shadow-[0_8px_30px_rgba(52,97,141,0.2)] hover:scale-105 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined text-[48px]" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="text-primary hover:opacity-80 transition-opacity p-3 rounded-full">
+<span class="material-symbols-outlined text-[40px]" style="font-variation-settings: 'FILL' 1;">skip_next</span>
+</button>
+
+</div>
+<!-- Sleep Timer (Bento-style row) -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container-low mb-lg">
+<h2 class="font-label-sm text-label-sm text-on-surface-variant mb-sm flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px]">timer</span>
+                定时关闭
+            </h2>
+<div class="flex justify-between gap-unit">
+<button class="timer-chip flex-1 py-2 px-1 rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container">15分钟</button>
+<button class="timer-chip flex-1 py-2 px-1 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm active shadow-[0_2px_8px_rgba(125,168,216,0.3)]">30分钟</button>
+<button class="timer-chip flex-1 py-2 px-1 rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container">60分钟</button>
+<button class="timer-chip flex-1 py-2 px-1 rounded-lg bg-surface-container-low text-on-surface font-label-sm text-label-sm hover:bg-surface-container">无</button>
+</div>
+</div>
+<!-- Volume Slider -->
+<div class="w-full max-w-md bg-surface-container-lowest rounded-xl p-md shadow-sm border border-surface-container-low">
+<h2 class="font-label-sm text-label-sm text-on-surface-variant mb-md flex items-center gap-sm">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+                音量调节
+            </h2>
+<div class="flex items-center gap-md w-full px-sm">
+<span class="material-symbols-outlined text-outline text-[20px]">volume_mute</span>
+<input class="flex-grow" max="100" min="0" type="range" value="70">
+<span class="material-symbols-outlined text-primary text-[20px]">volume_up</span>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<!-- Note: Following the semantic shell mandate, this is rendered because it's part of the requested UI, though typically a pure playback screen might hide it. Assuming it's a persistent bottom player/nav state for the app context. Active state set to Home as default fallback since no clear match for playback. -->
+
+<!-- Desktop Nav Fallback (hidden on mobile) -->
+
+<script>
+        // Simple interactions for timer chips
+        document.querySelectorAll('.timer-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                // Remove active classes from all chips
+                document.querySelectorAll('.timer-chip').forEach(c => {
+                    c.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_2px_8px_rgba(125,168,216,0.3)]');
+                    c.classList.add('bg-surface-container-low', 'text-on-surface');
+                });
+                
+                // Add active classes to clicked chip
+                this.classList.remove('bg-surface-container-low', 'text-on-surface');
+                this.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-[0_2px_8px_rgba(125,168,216,0.3)]');
+            });
+        });
+
+        // Toggle Play/Pause icon
+        const playBtn = document.querySelector('button.bg-primary');
+        const playIcon = playBtn.querySelector('.material-symbols-outlined');
+        let isPlaying = true;
+        
+        playBtn.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            playIcon.textContent = isPlaying ? 'pause' : 'play_arrow';
+            
+            // Pause animation if paused
+            const artwork = document.querySelector('.animate-spin-slow');
+            if(artwork) {
+                artwork.style.animationPlayState = isPlaying ? 'running' : 'paused';
+            }
+        });
+    </script>
+
+
+</body></html>

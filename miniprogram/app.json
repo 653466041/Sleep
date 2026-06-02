@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/nature/nature",
+    "pages/player/player",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "萌宝安睡白噪音",
+    "navigationBarBackgroundColor": "#faf9f6",
+    "backgroundColor": "#faf9f6"
+  },
+  "requiredBackgroundModes": ["audio"],
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}
